@@ -76,7 +76,13 @@ impl<'a> SyntaxMapping<'a> {
             .insert("fish_history", MappingTarget::MapTo("YAML"))
             .unwrap();
 
-        for glob in ["*.ndjson", "*.jsonl", "*.sarif"] {
+        for glob in &[
+            "*.code-snippets",
+            "*.code-workspace",
+            "*.ndjson",
+            "*.jsonl",
+            "*.sarif",
+        ] {
             mapping.insert(glob, MappingTarget::MapTo("JSON")).unwrap();
         }
 
