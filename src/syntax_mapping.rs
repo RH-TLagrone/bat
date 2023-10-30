@@ -166,6 +166,11 @@ impl<'a> SyntaxMapping<'a> {
             .insert("*.ron", MappingTarget::MapTo("Rust"))
             .unwrap();
 
+        // GitHub special repository files
+        mapping
+            .insert("CODEOWNERS", MappingTarget::MapTo("Git Attributes"))
+            .unwrap()
+
         // Global git config files rooted in `$XDG_CONFIG_HOME/git/` or `$HOME/.config/git/`
         // See e.g. https://git-scm.com/docs/git-config#FILES
         match (
